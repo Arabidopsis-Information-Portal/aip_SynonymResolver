@@ -1,0 +1,11 @@
+---
+name: resolver_synonym_kinds
+version: 0.1
+description: Query or list kinds of database identifiers known by AIP resolver service
+type: query
+main_module: resolverSynonymKinds/main.py
+requirements:
+    - re
+whitelist:
+    - 129.114.7.134
+    - www.uniprot.org
