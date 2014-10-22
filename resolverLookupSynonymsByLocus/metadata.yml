@@ -7,5 +7,3 @@ main_module: resolverLookupSynonymsByLocus/main.py
 whitelist:
     - 129.114.7.134
     - www.uniprot.org
-requirements:
-    - re
