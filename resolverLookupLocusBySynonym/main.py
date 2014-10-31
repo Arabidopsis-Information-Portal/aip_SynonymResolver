@@ -49,14 +49,18 @@ def search(arg):
 
     # This needs some error handling.
     # What if the remote source doesn't return JSON or times out?
-    for result in response.json()['results'][0]['data']:
-        print json.dumps({
-        'class': 'locus_id_mapping',
-        'locus': result['row'][0],
-        'relationships': [{'type': 'synonymous_with', 'direction': 'undirected', 'scores': [{'confidence': 1.00 }]}],
-        'related_entity': syn,
-        'related_entity_kind':result['row'][1]})
-    print '---'
+    if response.ok:
+        for result in response.json()['results'][0]['data']:
+            print json.dumps({
+            'class': 'locus_id_mapping',
+            'locus': result['row'][0],
+            'relationships': [{'type': 'synonymous_with', 'direction': 'undirected', 'scores': [{'confidence': 1.00 }]}],
+            'related_entity': syn,
+            'related_entity_kind':result['row'][1]})
+            print '---'
+    else:
+        return
+    
 
 
 def resolve_uniprot(arg1):

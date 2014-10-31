@@ -20,13 +20,18 @@ import resolver_common
 }
 '''
 
-# Returns JSON objects, one per source. Name will eventually be a human-readable label
-# but for now is the same as the id. 
+# Returns JSON objects, one per source.
+# Eventually: 
+#     name will be a human-readable description
+#     url will be an external URL
+# Quite eventually:
+#     We will include dbxrefs to link with MIRIAM
 
 '''
 {"id":"UniProt",
  "name:"Uniprot",
- "url":""}
+ "url":"",
+ "db_namespace":""}
 '''
 
 # Have we moved to non-JSON queries yet?
@@ -43,12 +48,18 @@ def list(arg):
 	                       'Accept': 'application/json; charset=UTF-8'})
 	                       
 # This needs some error handling. What if the remote source doesn't return JSON or times out?	                       
-	for result in response.json()['results'][0]['data']:
-		print json.dumps({
-			'class': 'id_mapping',
-			'locus': result['row'][0],
-			'type': 'synonym_of',
-			'related_entity': syn,
-			'direction': 'undirected',
-			'related_entity_kind':result['row'][1]}, indent=4)
-		print '---'
+	if response.ok:
+        for result in response.json()['results'][0]['data']:
+    		print json.dumps({
+    			'class': 'id_mapping',
+    			'locus': result['row'][0],
+    			'type': 'synonym_of',
+    			'related_entity': syn,
+    			'direction': 'undirected',
+    			'related_entity_kind':result['row'][1]}, indent=4)
+    		print '---'
+    else:
+        return
+
+def search(arg):
+    return
