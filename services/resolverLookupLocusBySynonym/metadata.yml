@@ -20,7 +20,7 @@ validate_request: true
 endpoints:
     /search:
         parameters:
-            - name: identifer
+            - name: identifier
               description: Gene synonym or alias
               type: string
               required: true
