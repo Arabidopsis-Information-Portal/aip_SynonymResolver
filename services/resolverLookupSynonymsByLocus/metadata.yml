@@ -1,0 +1,36 @@
+---
+name: resolver_fetch_synonyms_by_locus
+description: Return list of known synonyms and aliases for a valid AGI locus
+version: 0.2.0
+type: query
+main_module: resolverLookupSynonymsByLocus/main.py
+whitelist:
+    - 129.114.7.134
+    - www.uniprot.org
+
+icon: araport.png
+
+endpoints:
+    /search:
+        parameters:
+            - name: locus
+              description: Arabidopsis gene identifier
+              type: string
+              required: true
+              default: 'At2g26230'
+
+authors:
+    - name: Matt Vaughn
+      email: vaughn@tacc.utexas.edu
+      sponsor_organization: Texas Advanced Computing Center
+      sponsor_uri: http://www.tacc.utexas.edu/
+
+sources:
+    - title: ThaleMine
+      description: Intermine-based information warehouse containing essential Arabidopsis Col-0 data sets
+      language: en-us
+      sponsor_organization_name: J. Craig Venter Institute
+      sponsor_uri: http://www.jcvi.org/cms/home/
+      provider_name: Christopher Town
+      provider_email: cdtown@jcvi.org
+      uri: https://apps.araport.org/thalemine/

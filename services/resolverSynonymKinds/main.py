@@ -1,7 +1,8 @@
 import json
 import requests
 import re
-import resolver_common
+
+import services.common.tools
 
 # aip/resolverSynonymKinds
 #
@@ -28,30 +29,32 @@ import resolver_common
  "url":""}
 '''
 
-def list(arg):
+def list(args):
 
     # List all kinds
     response = requests.post(
-        resolver_common.single_transaction_url(),
+        services.common.tools.single_transaction_url(),
+        auth=services.common.tools.credentials(),
         data=json.dumps({
             'statements': [{
                     'statement': "MATCH (n:Identifier) RETURN DISTINCT n.kind ORDER BY n.kind" }]}),
                   headers={'Content-Type': 'application/json',
                            'Accept': 'application/json; charset=UTF-8'})
 
+    # Raise exception on bad HTTP status
+    response.raise_for_status()
+
     # This needs some error handling. What if the remote source doesn't return JSON or times out?
-    for result in response.json()['results'][0]['data']:
-        print json.dumps({
-            'class': 'identifier_kind',
-            'id': result['row'][0],
-            'name': result['row'][0],
-            'url': ''}, indent=4)
-        print '---'
+    try:
+        for result in response.json()['results'][0]['data']:
+            print json.dumps({
+                'class': 'identifier_kind',
+                'id': result['row'][0],
+                'name': result['row'][0],
+                'url': ''}, indent=4)
+            print '---'
+    except ValueError:
+        raise Exception('Not a JSON object: {}'.format(response.text))
 
-def search(arg):
-    # Search for and return a specific kind. Not implemented at present.
-    pass
-
-def help(arg):
-    # Placeholder for inline help presented in Markdown or other format
-    pass
+def search(args):
+    raise Exception('Not implemented yet')

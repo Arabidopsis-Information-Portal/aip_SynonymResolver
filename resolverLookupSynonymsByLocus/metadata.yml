@@ -1,9 +1,0 @@
----
-name: resolver_fetch_synonyms_by_locus
-version: 0.1
-description: Return list of known synonyms and aliases for a valid AGI locus
-type: query
-main_module: resolverLookupSynonymsByLocus/main.py
-whitelist:
-    - 129.114.7.134
-    - www.uniprot.org
