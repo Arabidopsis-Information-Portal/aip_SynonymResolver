@@ -1,14 +1,20 @@
 ---
-name: resolver_fetch_synonyms_by_locus
-description: Return list of known synonyms and aliases for a valid AGI locus
-version: 0.2.0
+name: synonym_by_locus
+description: Return list of known synonyms and/or aliases for a valid AGI locus
+icon: araport.png
+tags:
+    - 'synonym'
+    - 'alias'
+    - 'resolve'
+    - 'annotation'
+
+version: 0.5.0
 type: query
-main_module: resolverLookupSynonymsByLocus/main.py
+main_module: services.resolverLookupSynonymsByLocus.main.py
+url: http://52.5.242.162:7474/
 whitelist:
     - 129.114.7.134
     - www.uniprot.org
-
-icon: araport.png
 
 endpoints:
     /search:
@@ -34,3 +40,9 @@ sources:
       provider_name: Christopher Town
       provider_email: cdtown@jcvi.org
       uri: https://apps.araport.org/thalemine/
+    - title: UniProtKB
+      description: The UniProt Knowledgebase (UniProtKB) is the central hub for the collection of functional information on proteins, with accurate, consistent and rich annotation.
+      sponsor_organization_name: UniProt Consortium
+      sponsor_uri: http://www.uniprot.org/help/about
+      uri: http://www.uniprot.org/
+      license: Creative Commons Attribution-NoDerivs

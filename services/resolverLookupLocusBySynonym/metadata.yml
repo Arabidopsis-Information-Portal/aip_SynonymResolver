@@ -1,9 +1,48 @@
 ---
-name: resolver_fetch_locus_by_synonym
-version: 0.2
-description: Return AGI locus (or loci) for a synonym
+name: locus_by_synonym
+description: Return AGI locus (or loci) for a gene synonym or alias
+icon: araport.png
+tags:
+    - 'synonym'
+    - 'resolve'
+    - 'alias'
+    - 'annotation'
+
+version: 0.5.0
 type: query
-main_module: resolverLookupLocusBySynonym/main.py
-whitelist: 
+main_module: services.resolverLookupLocusBySynonym.main.py
+url: http://52.5.242.162:7474/
+whitelist:
     - 129.114.7.134
     - www.uniprot.org
+
+endpoints:
+    /search:
+        parameters:
+            - name: identifer
+              description: Gene synonym or alias
+              type: string
+              required: true
+              default: 'FWA'
+
+authors:
+    - name: Matt Vaughn
+      email: vaughn@tacc.utexas.edu
+      sponsor_organization: Texas Advanced Computing Center
+      sponsor_uri: http://www.tacc.utexas.edu/
+
+sources:
+    - title: ThaleMine
+      description: Intermine-based information warehouse containing essential Arabidopsis Col-0 data sets
+      language: en-us
+      sponsor_organization_name: J. Craig Venter Institute
+      sponsor_uri: http://www.jcvi.org/cms/home/
+      provider_name: Christopher Town
+      provider_email: cdtown@jcvi.org
+      uri: https://apps.araport.org/thalemine/
+    - title: UniProtKB
+      description: The UniProt Knowledgebase (UniProtKB) is the central hub for the collection of functional information on proteins, with accurate, consistent and rich annotation.
+      sponsor_organization_name: UniProt Consortium
+      sponsor_uri: http://www.uniprot.org/help/about
+      uri: http://www.uniprot.org/
+      license: Creative Commons Attribution-NoDerivs
