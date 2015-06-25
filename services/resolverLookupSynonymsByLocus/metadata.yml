@@ -16,6 +16,7 @@ whitelist:
     - 129.114.7.134
     - www.uniprot.org
 
+validate_request: true
 endpoints:
     /search:
         parameters:
