@@ -1,7 +1,7 @@
 ---
 name: synonym_known_kinds
 description: "List the types of database identifiers known to the Araport ID resolver service"
-main_module: services.resolverSynonymKinds.main.py
+main_module: services/resolverSynonymKinds/main.py
 type: query
 icon: araport.png
 url: http://52.5.242.162:7474/
