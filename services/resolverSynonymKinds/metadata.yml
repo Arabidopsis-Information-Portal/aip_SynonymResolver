@@ -14,6 +14,11 @@ whitelist:
   - "129.114.7.134"
   - www.uniprot.org
 
+validate_request: true
+endpoints:
+    /list:
+        parameters: []
+
 authors:
     - name: Matt Vaughn
       email: vaughn@tacc.utexas.edu
