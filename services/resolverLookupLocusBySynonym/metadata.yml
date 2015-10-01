@@ -11,10 +11,11 @@ tags:
 version: 0.5.0
 type: query
 main_module: services.resolverLookupLocusBySynonym.main.py
-url: http://52.5.242.162:7474/
+url: http://52.4.211.39:7474/
 whitelist:
     - 129.114.7.134
     - www.uniprot.org
+    - adama-dev.waltermoreira.net
 
 validate_request: true
 endpoints:

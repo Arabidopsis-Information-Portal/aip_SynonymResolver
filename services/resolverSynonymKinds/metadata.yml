@@ -4,16 +4,16 @@ description: "List the types of database identifiers known to the Araport ID res
 main_module: services.resolverSynonymKinds.main.py
 type: query
 icon: araport.png
-url: http://52.5.242.162:7474/
+url: http://52.4.211.39:7474/
 
 tags:
     - 'synonym'
     - 'resolve'
 version: 0.5.0
 whitelist:
-  - "129.114.7.134"
-  - www.uniprot.org
-
+    - "129.114.7.134"
+    - www.uniprot.org
+    - adama-dev.waltermoreira.net
 validate_request: true
 endpoints:
     /list:
@@ -24,4 +24,3 @@ authors:
       email: vaughn@tacc.utexas.edu
       sponsor_organization: Texas Advanced Computing Center
       sponsor_uri: http://www.tacc.utexas.edu/
-
