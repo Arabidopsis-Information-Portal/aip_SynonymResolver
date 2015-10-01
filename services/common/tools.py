@@ -1,4 +1,4 @@
-NEO4J_SERVER_IP='52.5.242.162'
+NEO4J_SERVER_IP='52.4.211.39'
 NEO4J_SERVER_PORT='7474'
 
 def single_transaction_url():
